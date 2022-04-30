@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    // use this if u want to debug the next js by server side
+    {
+      "name": "Next.js: debug server-side",
+      "type": "pwa-node",
+      "request": "launch",
+      "command": "npm run dev",
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "${workspaceFolder}/lib/**/*.js"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next"
+    },
+
+    // use this if u want to attach via external client
+    {
+      "name": "Next.js: debug client-side",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:3000"
+    },
+
+    // use this if u want to debug and attach via external client
+    {
+      "name": "Next.js: debug full stack",
+      "type": "pwa-node",
+      "request": "launch",
+      "command": "npm run dev",
+      "console": "integratedTerminal",
+      "skipFiles": [
+        "${workspaceFolder}/node_modules/**/*.js",
+        "${workspaceFolder}/lib/**/*.js"
+      ],
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/next",
+      "serverReadyAction": {
+        "pattern": "started server on .+, url: (https?://.+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    }
+  ]
+}
